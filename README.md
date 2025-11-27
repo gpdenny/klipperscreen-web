@@ -2,7 +2,7 @@
 
 Run [KlipperScreen](https://github.com/KlipperScreen/KlipperScreen) as a Docker container with browser-based access — no VNC client required.
 
-![KlipperScreen in browser](docs/KlipperScreen-web.png.png)
+![KlipperScreen in browser](docs/KlipperScreen-web.png)
 
 ## Why?
 
