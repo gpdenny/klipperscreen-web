@@ -1,0 +1,15 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+cd /opt/klipperscreen || exit 1
+
+# Wait for display to be ready
+until [ -n "${DISPLAY}" ] && xdpyinfo >/dev/null 2>&1; do
+    sleep 1
+done
+
+exec \
+    s6-setuidgid abc \
+    /opt/klipperscreen/venv/bin/python \
+    /opt/klipperscreen/screen.py \
+    -c /config/KlipperScreen.conf

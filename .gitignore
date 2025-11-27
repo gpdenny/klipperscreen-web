@@ -1,0 +1,4 @@
+# Config directory contents (keep the directory via .gitkeep)
+/config/*
+!/config/.gitkeep
+

@@ -1,0 +1,36 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+# Only generate config if it doesn't already exist
+if [[ ! -f /config/KlipperScreen.conf ]]; then
+    
+    # Generate from environment variables if MOONRAKER_HOST is set
+    if [[ -n "${MOONRAKER_HOST}" ]]; then
+        echo "**** Generating KlipperScreen config from environment variables ****"
+        
+        # Set defaults for optional variables
+        export MOONRAKER_PORT="${MOONRAKER_PORT:-7125}"
+        export MOONRAKER_API_KEY="${MOONRAKER_API_KEY:-False}"
+        
+        # Create config directory if needed
+        mkdir -p /config
+        
+        # Generate config from template using envsubst
+        envsubst < /defaults/KlipperScreen.conf.template > /config/KlipperScreen.conf
+        
+        echo "**** Config generated for printer 'Default' at ${MOONRAKER_HOST}:${MOONRAKER_PORT} ****"
+    
+    # No env vars - copy default template
+    else
+        echo "**** Creating default KlipperScreen config ****"
+        echo "**** Set MOONRAKER_HOST to auto-configure, or edit /config/KlipperScreen.conf ****"
+        cp /defaults/KlipperScreen.conf /config/KlipperScreen.conf
+    fi
+
+else
+    echo "**** Existing KlipperScreen config found, skipping generation ****"
+fi
+
+# Fix permissions
+lsiown -R abc:abc /config
+lsiown -R abc:abc /opt/klipperscreen

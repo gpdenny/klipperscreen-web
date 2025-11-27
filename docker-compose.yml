@@ -1,0 +1,18 @@
+services:
+  klipperscreen:
+    image: ghcr.io/gpdenny/klipperscreen-web:latest
+    container_name: klipperscreen
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      # Auto-configure printer connection (optional - remove to use default config file instead)
+      #- MOONRAKER_HOST=
+      #- MOONRAKER_PORT=7125
+      #- MOONRAKER_API_KEY=
+    volumes:
+      - ./config:/config
+    ports:
+      - 3001:3001
+    restart: unless-stopped
+

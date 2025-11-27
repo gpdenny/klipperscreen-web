@@ -1,0 +1,15 @@
+# KlipperScreen configuration
+# Generated from environment variables
+# Documentation: https://klipperscreen.github.io/KlipperScreen/Configuration/
+
+[printer Default]
+moonraker_host: ${MOONRAKER_HOST}
+moonraker_port: ${MOONRAKER_PORT}
+moonraker_api_key: ${MOONRAKER_API_KEY}
+
+[main]
+# Screen blanking timeout in seconds (0 = disabled)
+screen_blanking: 0
+# Show cursor (useful for browser-based access)
+show_cursor: True
+
