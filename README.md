@@ -2,6 +2,8 @@
 
 Run [KlipperScreen](https://github.com/KlipperScreen/KlipperScreen) as a Docker container with browser-based access — no VNC client required.
 
+![KlipperScreen in browser](docs/KlipperScreen-web.png.png)
+
 ## Why?
 
 KlipperScreen is a touchscreen GUI for Klipper 3D printers. Traditionally, running it on a [remote device](https://klipperscreen.github.io/KlipperScreen/VNC/) requires installing a VNC client or Xserver-XSDL app.
